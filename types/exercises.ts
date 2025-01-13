@@ -17,7 +17,7 @@ export interface TestQuestion {
   question: string
   questionType: 'single' | 'multiple' | 'text'
   options?: string[]
-  correctAnswers?: number[] // Для single/multiple вопросов
+  correctAnswers: number[] // Для single/multiple вопросов (обязательное поле)
   correctTextAnswer?: string // Для текстовых вопросов
   explanation: string
   points: number
