@@ -52,6 +52,31 @@ export interface ExerciseProgress {
   lastAttemptAt?: Date
 }
 
+export interface CourseProgress {
+  completedLessons: number
+  totalLessons: number
+  lastAccessed?: Date
+  score?: number
+}
+
+export interface CourseCategory {
+  id: string
+  name: string
+  icon?: string
+  color?: string
+}
+
+export interface CourseTag {
+  id: string
+  name: string
+}
+
+export interface CourseLevel {
+  id: string
+  name: 'Начинающий' | 'Средний' | 'Продвинутый'
+  description?: string
+}
+
 export interface Lesson {
   id: number
   title: string
@@ -71,5 +96,17 @@ export interface Course {
     value: number
     count: number
   }
-  category?: string
+  category?: CourseCategory
+  tags?: CourseTag[]
+  level?: CourseLevel
+  requirements?: string[]
+  duration?: number // in minutes
+  createdAt?: Date
+  updatedAt?: Date
+  author?: {
+    name: string
+    avatar?: string
+    bio?: string
+  }
+  progress?: CourseProgress
 }
