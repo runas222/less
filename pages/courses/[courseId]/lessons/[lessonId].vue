@@ -313,14 +313,55 @@ const navigateToNextLesson = () => {
 
 .text-content {
   line-height: 1.6;
-  font-size: 1.1rem;
-  color: #444;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.text-content :deep(h3) {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #1e293b;
+  font-size: 1.25rem;
 }
 
 .text-content :deep(br) {
   margin-bottom: 1rem;
   display: block;
   content: "";
+}
+
+.text-content :deep(ul) {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+}
+
+.text-content :deep(li) {
+  margin-bottom: 0.8rem;
+  padding-left: 1rem;
+  position: relative;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.text-content :deep(li::before) {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+}
+
+@media (max-width: 768px) {
+  .text-content {
+    font-size: 0.95rem;
+  }
+  
+  .text-content :deep(h3) {
+    font-size: 1.1rem;
+  }
+  
+  .text-content :deep(li) {
+    font-size: 0.95rem;
+  }
 }
 
 .lesson-navigation {

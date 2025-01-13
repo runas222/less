@@ -50,14 +50,15 @@ const props = defineProps<{
   border-radius: 1rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   line-height: 1.6;
-  font-size: 1.1rem;
-  color: #444;
+  font-size: 1rem;
+  color: #1e293b;
 }
 
 .content >>> h3 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   color: #1e293b;
+  font-size: 1.25rem;
 }
 
 .key-points {
@@ -71,6 +72,8 @@ const props = defineProps<{
   margin-bottom: 0.8rem;
   padding-left: 1rem;
   position: relative;
+  font-size: 1rem;
+  color: #1e293b;
 }
 
 .point::before {
@@ -93,6 +96,8 @@ const props = defineProps<{
   background: white;
   border-radius: 0.75rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  color: #1e293b;
 }
 
 @media (max-width: 768px) {
@@ -103,6 +108,15 @@ const props = defineProps<{
   .key-points,
   .examples {
     padding: 1rem;
+  }
+  
+  .content >>> h3 {
+    font-size: 1.1rem;
+  }
+  
+  .point,
+  .example {
+    font-size: 0.95rem;
   }
 }
 </style>
