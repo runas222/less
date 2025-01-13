@@ -90,6 +90,7 @@ export const courses: Course[] = [
             id: 'mortgage-test-1',
             type: 'test',
             title: 'Тест по типам ипотечных программ',
+            passingScore: 1, // Минимальный балл для прохождения
             questions: [
               {
                 id: 'mortgage-test-1-q1',
