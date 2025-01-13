@@ -1,7 +1,5 @@
 <template>
   <div class="reading-exercise">
-    <h2 class="title">{{ exercise.title }}</h2>
-    
     <div class="content">
       <div v-html="exercise.content"></div>
       
@@ -46,10 +44,6 @@ const props = defineProps<{
   max-width: 800px;
 }
 
-.title {
-  margin-bottom: 1.5rem;
-  color: #2c3e50;
-}
 
 .content {
   line-height: 1.6;
