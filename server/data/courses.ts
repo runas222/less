@@ -59,7 +59,7 @@ export const courses: Course[] = [
             id: 'mortgage-intro-2',
             type: 'reading',
             title: 'Ключевые моменты урока',
-            content: `Основные понятия из урока:`,
+            content: '',
             keyPoints: [
               'Ипотека - долгосрочный заем под залог недвижимости',
               'Срок кредита от 5 до 30 лет',
