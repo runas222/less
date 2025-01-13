@@ -158,9 +158,17 @@ const lesson = computed(() => {
   return foundLesson
 })
 
+const { data: lessonContent } = await useAsyncData(
+  `lesson-content-${lessonId}`,
+  async () => {
+    if (!lesson.value?.contentPath) return ''
+    return await $fetch<string>(lesson.value.contentPath)
+  }
+)
+
 const formattedContent = computed(() => {
-  if (!lesson.value) return ''
-  return lesson.value.content.replace(/\n/g, '<br>')
+  if (!lessonContent.value) return ''
+  return lessonContent.value
 })
 
 const currentLessonIndex = computed(() => {

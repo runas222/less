@@ -3,7 +3,7 @@
     <h2 class="title">{{ exercise.title }}</h2>
     
     <div class="content">
-      <div v-html="exercise.content"></div>
+      <div v-if="exerciseContent" v-html="exerciseContent"></div>
       
       <div v-if="exercise.keyPoints.length" class="key-points">
         <h3>Ключевые моменты:</h3>
@@ -35,9 +35,13 @@
 <script setup lang="ts">
 import type { Exercise } from '~/types/exercises'
 
-const props = defineProps<{
-  exercise: Exercise & { type: 'reading' }
-}>()
+const { data: exerciseContent } = await useAsyncData(
+  `exercise-content-${props.exercise.id}`,
+  async () => {
+    if (!props.exercise.contentPath) return ''
+    return await $fetch<string>(props.exercise.contentPath)
+  }
+)
 </script>
 
 <style scoped>
