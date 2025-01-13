@@ -40,27 +40,31 @@ const props = defineProps<{
 
 <style scoped>
 .reading-exercise {
-  margin-top: 20px;
-  max-width: 800px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-
 .content {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   line-height: 1.6;
   font-size: 1.1rem;
+  color: #444;
 }
 
 .content >>> h3 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  color: #34495e;
+  color: #1e293b;
 }
 
 .key-points {
   margin-top: 2rem;
   padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 8px;
+  background: #f8fafc;
+  border-radius: 1rem;
 }
 
 .point {
@@ -73,21 +77,32 @@ const props = defineProps<{
   content: '•';
   position: absolute;
   left: 0;
-  color: #3498db;
+  color: #3b82f6;
 }
 
 .examples {
   margin-top: 2rem;
   padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 8px;
+  background: #f8fafc;
+  border-radius: 1rem;
 }
 
 .example {
   margin-bottom: 1rem;
   padding: 1rem;
   background: white;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1.5rem;
+  }
+  
+  .key-points,
+  .examples {
+    padding: 1rem;
+  }
 }
 </style>
