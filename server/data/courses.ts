@@ -92,6 +92,7 @@ export const courses: Course[] = [
             title: 'Тест по типам ипотечных программ',
             questions: [
               {
+                id: 'mortgage-test-1-q1',
                 question: 'Какая программа подходит для молодых семей?',
                 options: [
                   'Стандартная ипотека',
@@ -105,6 +106,7 @@ export const courses: Course[] = [
                 questionType: 'single'
               },
               {
+                id: 'mortgage-test-1-q2',
                 question: 'Какая минимальная ставка по стандартной ипотеке?',
                 options: ['6%', '8%', '10%', '12%'],
                 correctAnswers: [3],
