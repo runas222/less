@@ -12,14 +12,30 @@ export interface ReadingExercise extends BaseExercise {
   examples?: string[]
 }
 
+export interface TestQuestion {
+  id: string
+  question: string
+  questionType: 'single' | 'multiple' | 'text'
+  options?: string[]
+  correctAnswers?: number[] // Для single/multiple вопросов
+  correctTextAnswer?: string // Для текстовых вопросов
+  explanation: string
+  points: number
+  timeLimit?: number // В секундах, если есть ограничение по времени
+  hint?: string
+}
+
 export interface TestExercise extends BaseExercise {
   type: 'test'
-  questions: Array<{
-    question: string
-    options: string[]
-    correctAnswer: number
-    explanation: string
-  }>
+  passingScore: number // Минимальный балл для прохождения
+  maxAttempts?: number // Максимальное количество попыток
+  timeLimit?: number // Общее время на тест в минутах
+  showResults?: 'immediate' | 'after_completion' | 'manual'
+  questions: TestQuestion[]
+  shuffleQuestions?: boolean
+  shuffleAnswers?: boolean
+  showCorrectAnswers?: boolean
+  allowRetry?: boolean
 }
 
 export interface PracticeExercise extends BaseExercise {
