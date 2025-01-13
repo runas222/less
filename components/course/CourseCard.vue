@@ -1,14 +1,27 @@
 <template>
-  <NuxtLink :to="`/courses/${course.id}`" class="course-card">
+  <NuxtLink 
+    :to="`/courses/${course.id}`" 
+    class="course-card"
+    :aria-label="`Курс: ${course.title}. ${course.description}`"
+  >
     <div class="image-wrapper">
-      <img :src="course.image" :alt="course.title" class="course-image">
+      <img 
+        :src="course.image" 
+        :alt="course.title" 
+        class="course-image"
+        loading="lazy"
+        @error="handleImageError"
+      >
       <div v-if="course.category" class="category-badge">
         {{ course.category }}
       </div>
+      <div v-if="imageLoading" class="image-skeleton"></div>
     </div>
     <div class="content">
       <h3 class="title">{{ course.title }}</h3>
-      <p class="description">{{ course.description }}</p>
+      <p class="description">
+        {{ truncateDescription(course.description) }}
+      </p>
       
       <div class="progress">
         <div class="progress-bar">
@@ -31,15 +44,49 @@
 
 <script setup lang="ts">
 import type { Course } from '../../server/data/courses'
+import { ref } from 'vue'
 
-defineProps<{
+const props = defineProps<{
   course: Omit<Course, 'lessons'> & {
     progress?: number
   }
 }>()
+
+const imageLoading = ref(true)
+const imageError = ref(false)
+
+const handleImageError = () => {
+  imageError.value = true
+  imageLoading.value = false
+}
+
+const truncateDescription = (text?: string) => {
+  if (!text) return ''
+  return text.length > 120 ? text.slice(0, 120) + '...' : text
+}
 </script>
 
 <style scoped>
+.image-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 .course-card {
   display: block;
   background: white;
@@ -69,6 +116,21 @@ defineProps<{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.course-image.loaded {
+  opacity: 1;
+}
+
+.course-image.error {
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #666;
 }
 
 .category-badge {
