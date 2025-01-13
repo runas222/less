@@ -99,14 +99,18 @@ export const courses: Course[] = [
                   'Военная ипотека',
                   'Семейная ипотека'
                 ],
-                correctAnswer: 3,
-                explanation: 'Семейная ипотека предоставляет льготы для семей с детьми'
+                correctAnswers: [3],
+                explanation: 'Семейная ипотека предоставляет льготы для семей с детьми',
+                points: 1,
+                questionType: 'single'
               },
               {
                 question: 'Какая минимальная ставка по стандартной ипотеке?',
                 options: ['6%', '8%', '10%', '12%'],
-                correctAnswer: 3,
-                explanation: 'Стандартная ипотека имеет ставку от 12%'
+                correctAnswers: [3],
+                explanation: 'Стандартная ипотека имеет ставку от 12%',
+                points: 1,
+                questionType: 'single'
               }
             ]
           },
