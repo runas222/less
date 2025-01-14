@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { ReadingExercise, PracticeExercise, VideoExercise, TestExercise } from '~/types/exercises'
+import type { ReadingExercise, PracticeExercise, VideoExercise, TestExercise, ExampleExercise } from '~/types/exercises'
 import ReadingExerciseComponent from './ExerciseTypes/ReadingExercise.vue'
 import TestExerciseComponent from './ExerciseTypes/TestExercise.vue'
 import PracticeExerciseComponent from './ExerciseTypes/PracticeExercise.vue'
 import VideoExerciseComponent from './ExerciseTypes/VideoExercise.vue'
 
-type Exercise = ReadingExercise | PracticeExercise | VideoExercise | TestExercise
+type Exercise = ReadingExercise | PracticeExercise | VideoExercise | TestExercise | ExampleExercise
 
 const props = defineProps<{
   exercises: Exercise[]

@@ -47,31 +47,39 @@ const props = defineProps<{
 
 <style scoped>
 .test-exercise {
-  margin-top: 20px;
-  max-width: 800px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .title {
   margin-bottom: 1.5rem;
-  color: #2c3e50;
+  color: #1e293b;
+  font-size: 1.5rem;
 }
 
 .question {
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 8px;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .question-title {
   margin-bottom: 1rem;
-  color: #34495e;
+  color: #1e293b;
+  font-size: 1.25rem;
 }
 
 .question-text {
   margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
+  color: #1e293b;
 }
 
 .options {
@@ -96,10 +104,10 @@ const props = defineProps<{
 
 .explanation {
   margin-top: 1rem;
-  padding: 1rem;
-  background: white;
-  border-radius: 4px;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 1rem;
   font-style: italic;
-  color: #666;
+  color: #1e293b;
 }
 </style>

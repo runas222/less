@@ -1,8 +1,18 @@
 export interface BaseExercise {
   id: string
-  type: 'reading' | 'test' | 'practice' | 'video'
+  type: 'reading' | 'test' | 'practice' | 'video' | 'example'
   title: string
   description?: string
+}
+
+export interface ExampleExercise extends BaseExercise {
+  type: 'example'
+  examples: Array<{
+    scenario: string
+    details: string
+  }>
+  content?: string
+  keyPoints?: string[]
 }
 
 export interface ReadingExercise extends BaseExercise {
@@ -56,7 +66,7 @@ export interface VideoExercise extends BaseExercise {
   }>
 }
 
-export type Exercise = ReadingExercise | TestExercise | PracticeExercise | VideoExercise
+export type Exercise = ReadingExercise | TestExercise | PracticeExercise | VideoExercise | ExampleExercise
 
 export interface ExerciseProgress {
   exerciseId: string

@@ -42,6 +42,10 @@ const props = defineProps<{
 .reading-exercise {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .content {
@@ -52,6 +56,7 @@ const props = defineProps<{
   line-height: 1.6;
   font-size: 1rem;
   color: #1e293b;
+  margin-bottom: 2rem;
 }
 
 .content >>> h3 {
